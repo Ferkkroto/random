@@ -1,0 +1,247 @@
+/* styles.css */
+
+/* Restablecemos los márgenes y el padding por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden; 
+}
+/* Resto del CSS... */
+
+.header-title {
+  text-align: left; /* Alinea el texto al centro */
+  margin-left: 0.5rem;
+  position: absolute; /* Posicionamiento absoluto para ubicar en el centro */
+  width: 90%; /* Ocupa el ancho completo del encabezado */
+  top: 70%; /* Posiciona en la mitad verticalmente */
+  transform: translateY(-50%); /* Ajusta para centrar exactamente en vertical */
+  color: white; /* Ajusta el color del texto según tu diseño */
+}
+
+.header-title h1 {
+  font-size: 3rem; /* Tamaño del título */
+  margin-bottom: 1rem; /* Espacio entre el título y el subtítulo */
+}
+
+.header-title p {
+  font-size: 1.5rem; /* Tamaño del subtítulo */
+  width: 30%;
+  top: 70%; 
+}
+
+/* Para laptops (ajustes mínimos si es necesario) */
+@media (max-width: 1440px) {
+  .header-title h1 {
+    font-size: 3rem; /* Ligeramente más pequeño si es necesario */
+  }
+  .header-title p {
+    font-size: 1.4rem;
+  }
+}
+
+/* Para tabletas */
+@media (max-width: 768px) {
+  .header-title {
+    top: 70%; /* Ajustado a 60% para tabletas */
+  }
+  .header-title h1 {
+    font-size: 2rem; /* Adjusted size */
+  }
+  .header-title p {
+    font-size: 1.2rem; /* Adjusted size */
+    width: 50%; /* Adjusted width for better readability */
+  }
+}
+
+
+/* Para móviles */
+@media (max-width: 480px) {
+  .header-title {
+    top: 70%; /* Ajustado a menos del 70% para dispositivos móviles */
+    transform: translateY(-50%); /* Mantiene el elemento centrado verticalmente */
+  }
+  .header-title h1 {
+    font-size: 1rem; /* Tamaño reducido */
+    margin-bottom: 0.5rem; /* Espaciado ajustado */
+  }
+  .header-title p {
+    font-size: 1rem; /* Tamaño reducido */
+    width: 70%; /* Ancho ajustado para mejor legibilidad en pantallas pequeñas */
+  }
+}
+
+
+
+.header-buttons {
+  position: absolute;
+  left: 35%;
+  top: 81%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilos comunes para ambos botones/enlaces */
+.header-buttons a {
+  display: inline-block; /* Permite aplicar padding y width */
+  text-align: center; /* Centra el texto dentro del botón */
+  text-decoration: none; /* Quita el subrayado del texto */
+  padding: 0.5em 1em; /* Ajusta el padding según necesites */
+  border-radius: 0px; /* Ajusta si deseas bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+  width: 10em; /* Ajusta el ancho según necesites */
+}
+
+/* Estilos específicos para el botón rojo */
+.header-buttons .button-red {
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+/* Estilos específicos para el botón transparente */
+.header-buttons .button-transparent {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+
+/* Media query para móviles y tabletas */
+@media (max-width: 768px) {
+  .header-buttons  {
+    flex-direction: row; /* Apila los botones verticalmente */
+    top: 80%;
+    left: 50%;
+  }
+
+  .header-buttons a {
+    width: 100%; /* Permite que los botones ocupen todo el ancho disponible */
+    margin-bottom: 0.5em; /* Añade espacio entre los botones apilados */
+  }
+}
+
+/* Media query para móviles */
+@media (max-width: 480px) {
+  .header-buttons {
+    flex-direction: column; /* Apila los botones verticalmente */
+    top: 90%;
+  }
+
+  .header-buttons a {
+    width: 100%; /* Permite que los botones ocupen todo el ancho disponible */
+    margin-bottom: 0.5em; /* Añade espacio entre los botones apilados */
+  }
+}
+
+
+header {
+  background-image: url('imagenes/fondoprincipal.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  position: absolute; /* Esto permite posicionar absolutamente el logo respecto a este contenedor */
+  padding: 1rem; /* Espacio alrededor del contenido del encabezado, ajusta según necesidad */
+}
+
+.logo {
+  position: absolute; /* Posicionamiento absoluto para el logo */
+  top: 20px; /* 10px desde el top del header */
+  margin-left: 0.5rem;/* Ajusta este valor para cambiar la distancia desde la derecha */
+
+}
+
+.nav-container {
+  position: absolute; /* Puedes ajustar esta propiedad si deseas posicionar el contenedor de enlaces específicamente */
+  right: 0px; /* Ajusta este valor según necesidad */
+  top: 0px; /* Ajusta si deseas cambiar la posición vertical */
+  background-color: white;
+  border-radius: 0px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem;
+}
+/* Botón de menú para móviles */
+.menu-btn {
+  position: absolute;
+  display: none;
+  cursor: pointer;
+}
+
+/* Ocultar los enlaces en pantallas pequeñas */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .nav-links a, .contact-link {
+    display: block;
+  }
+
+  /* Mostrar el botón de menú */
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* Checkbox para manejar el estado del menú */
+#menu-toggle {
+  display: none; /* Oculta el checkbox */
+}
+
+/* Usar el checkbox para mostrar/ocultar los enlaces */
+#menu-toggle:checked + .nav-links {
+  display: flex;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-right: 1rem;
+}
+
+.nav-links li {
+  padding: 0 20px;
+}
+
+.nav-links a, .contact-link {
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+
+.contact-link:focus {
+  background-color: #f2f2f2;
+}
+
+.contact-link {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.logo img {
+  height: 50px; /* Ajusta este valor según el tamaño deseado para tu logo */
+  width: 80px;
+}
